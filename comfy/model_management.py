@@ -355,6 +355,10 @@ except:
     pass
 
 
+if args.disable_cudnn_torch_backend:
+    print("Disabling cuDNN PyTorch backend.")
+    torch.backends.cudnn.enabled = False
+
 if ENABLE_PYTORCH_ATTENTION:
     torch.backends.cuda.enable_math_sdp(True)
     torch.backends.cuda.enable_flash_sdp(True)
